@@ -1,0 +1,22 @@
+.filter-section input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+  }
+  
+  .filter-section input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  }
+  
+  .filter-section input[type="text"]:hover {
+    border-color: #007bff;
+  }
+  
+  .filter-section input[type="text"]::placeholder {
+    color: #aaa;
+  }
+  

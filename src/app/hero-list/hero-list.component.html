@@ -1,0 +1,48 @@
+<div class="filter-section">
+  <app-hero-filter (filterChange)="applyFilter($event)"></app-hero-filter>
+  <select [(ngModel)]="orderBy" (change)="orderByChanged(orderBy)">
+    <option value="name">Nome</option>
+    <option value="year">Ano</option>
+  </select>
+</div>
+
+<div class="pagination-section">
+  <button (click)="fetchPreviousPage()" [disabled]="pagination.offset === 0">Previous</button>
+  Página {{ pagination.offset / pagination.limit + 1 }} de {{ pagination.totalPages }}
+  <button (click)="fetchNextPage()" [disabled]="pagination.offset + pagination.limit >= pagination.total">Next</button>
+</div>
+
+<div class="hero-details" *ngFor="let hero of filteredHeroes">
+  <div class="hero-details-section">
+    <h2>{{ hero.name }}</h2>
+    <img [src]="hero.thumbnail" alt="{{ hero.name }} thumbnail">
+    <p>{{ hero.description }}</p>
+  </div>
+  
+  <div class="series" *ngIf="hero.series && hero.series.length > 0">
+    <h3 *ngIf="hero.series && hero.series.length > 0">Séries:</h3>
+    <ul *ngIf="hero.series && hero.series.length > 0">
+      <li *ngFor="let series of hero.series">
+        <p>{{ series.name }}</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="comics" *ngIf="hero.comics && hero.comics.length > 0">
+  <h3 *ngIf="hero.comics && hero.comics.length > 0">Comics recentes:</h3>
+  <ul *ngIf="hero.comics && hero.comics.length > 0">
+    <li *ngFor="let comics of hero.comics">
+      <p>{{ comics.name }}</p>
+    </li>
+  </ul>
+  </div>
+
+  <div class="events" *ngIf="hero.events && hero.events.length > 0">
+  <h3 *ngIf="hero.events && hero.events.length > 0">Eventos:</h3>
+  <ul *ngIf="hero.events && hero.events.length > 0">
+    <li *ngFor="let events of hero.events">
+      <p>{{ events.name }}</p>
+    </li>
+  </ul>
+  </div>
+</div>
