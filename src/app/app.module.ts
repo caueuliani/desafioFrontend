@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HeroListComponent } from '../app/hero-list/hero-list.component';
 import { HeroFilterComponent } from '../app/hero-filter/hero-filter.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

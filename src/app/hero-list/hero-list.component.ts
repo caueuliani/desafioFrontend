@@ -1,6 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HeroFilterComponent } from '../hero-filter/hero-filter.component';
 
 @Component({
@@ -12,10 +13,10 @@ export class HeroListComponent implements OnInit {
   heroes: any[] = [];
   filteredHeroes: any[] = [];
   searchTerm: string = '';
-  orderBy: string = 'name'; // Default order by name
-  pagination: any = null; // Define pagination property
+  orderBy: string = 'name';
+  pagination: any = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.fetchHeroes();
